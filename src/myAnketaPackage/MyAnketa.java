@@ -5,12 +5,9 @@ import javax.servlet.ServletException;
 import java.io.*;
 import java.util.Enumeration;
 
-/**
- * Created by user on 29.06.2015.
- */
 public class MyAnketa extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // устанаваливаем MIME ответа "text/html"
         resp.setContentType("text/html");
 
@@ -25,7 +22,7 @@ public class MyAnketa extends HttpServlet {
 
         // метод = "post" поскольку метод сервлета service()
         // вызывает doPost для обработки данных введенных в форму
-        out.println("<form method=\"post\" action =\"" + req.getContextPath() + "/myanketa\" >");
+        out.println("<form method=\"post\" action =\"" + req.getContextPath() + "/MyAnketa\" >");
 
         out.println("<table border=\"0\"><tr><td valign=\"top\">");
         out.println("Your first name: </td>  <td valign=\"top\">");
@@ -59,7 +56,7 @@ public class MyAnketa extends HttpServlet {
     } //end doGet
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // отображаем имена изначения параметров
         Enumeration paramNames = req.getParameterNames();
 
